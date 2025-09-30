@@ -32,7 +32,7 @@ const Footer = () => {
     </div>
   </div>
   <div className="text-center mt-10 text-gray-500">
-    <p>© 2024 Rentify. All rights reserved.</p>
+    <p>© 2025 Rentify. All rights reserved.</p>
   </div>
 </div>
 
