@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { MdMenu,  } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -15,7 +15,21 @@ const Navbar = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+  const inputRef = useRef(null);
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      navigate(`/properties/search/${search}`);
+      selectInput();
+    }
+  };
+
+  const selectInput = () => {
+  if (inputRef.current) {
+    inputRef.current.select();
+  }
+};
+
   useEffect(() => {
     if (user) {
       const getInitials = () => {
@@ -38,10 +52,12 @@ const Navbar = () => {
 
       <div className="navbar_search hidden lg:flex border border-gray-300 rounded-full p-2">
         <input
+          ref={inputRef}
           type="text"
           placeholder="Search ..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={handleKeyDown}
           className="flex-1 outline-none"
         />
         <button

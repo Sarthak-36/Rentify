@@ -55,7 +55,10 @@ router.post("/create", async (req, res) => {
       highlightDesc,
       price,
     });
-
+    const user = await User.findById(creator);
+    user.propertyList.push(newListing._id);
+    await user.save();
+    
     await newListing.save();
     res.status(200).json({ success: true, data: newListing });
 

@@ -29,7 +29,10 @@ const UserSchema = new mongoose.Schema(
     },
     propertyList: {
       type: Array,
-      default: [],
+      default: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Listing'
+          }],
     },
     reservationList: {
       type: Array,

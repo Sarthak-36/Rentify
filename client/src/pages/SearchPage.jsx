@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 import ListingCard from "../components/ListingCard";
 import Footer from "../components/Footer"
 import axios from "axios";
+
 const SearchPage = () => {
   const [loading, setLoading] = useState(true)
   const { search } = useParams()
@@ -30,6 +31,7 @@ const SearchPage = () => {
     getSearchListings()
   }, [search])
   
+
   return loading ? (
     <Loader />
   ) : (
@@ -42,11 +44,12 @@ const SearchPage = () => {
         </div>
       ) : (
         <div className="list px-4 md:px-8 lg:px-12 xl:px-20 mt-8 flex justify-start flex-wrap gap-4">
-          {listings?.map(({ _id, creator, listingPhotoPaths, city, province, country, category, type, price, booking = false }) => (
+          {listings?.map(({ _id, creator, listingPhotoPaths, city, province, country, category, type, price, booking = false }, index) => (
             <ListingCard
               key={_id}
               listingId={_id}
               creator={creator}
+              index = {index}
               listingPhotoPaths={listingPhotoPaths}
               city={city}
               province={province}

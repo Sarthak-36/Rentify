@@ -20,6 +20,7 @@ const ListingCard = ({
   endDate,
   totalPrice,
   booking,
+  listingPhotoPaths,
 }) => {
   const [likeCount, setLikeCount] = useState(0);
   const [isLiked, setIsLiked] = useState(false)
@@ -122,7 +123,7 @@ const ListingCard = ({
       <div className="w-full overflow-hidden rounded-md mb-2">
         <div className="relative flex-shrink-0 w-full h-72">
           <img
-            src={staticImages[index % staticImages.length]}
+            src={(listingPhotoPaths)||(staticImages[index % staticImages.length])}
             alt="property"
             className="object-cover w-full h-full"
           />
