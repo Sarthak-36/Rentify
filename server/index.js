@@ -9,7 +9,7 @@ const  colors = require('colors');
 const authRoutes = require("./routes/auth.js")
 const listingRoutes = require("./routes/listing.js")
 const userRoutes = require("./routes/user.js")
-const bookingRoutes = require('./routes/booking.js');
+// const bookingRoutes = require('./routes/booking.js');
 
 
 app.use(cors());
@@ -22,7 +22,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use("/auth", authRoutes)
 app.use("/properties", listingRoutes)
 app.use("/users", userRoutes)
-app.use('/bookings', bookingRoutes);
+// app.use('/bookings', bookingRoutes);
 
 // Connect to db
 mongoose.connect(process.env.DB_URL)
