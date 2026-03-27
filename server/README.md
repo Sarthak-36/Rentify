@@ -1,5 +1,3 @@
-Clone the repo: git clone https://github.com/Mohdsahil/node-express-backend-articture.git
-
 Install dependencies: npm install
 
 add DB_URL and JWT_SECRET
